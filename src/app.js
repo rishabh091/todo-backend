@@ -4,7 +4,9 @@ const { readdirSync } = require('fs');
 const { join } = require('path');
 require('dotenv').config();
 const { sequelize } = require('./db/sequalize');
+const cors = require('cors');
 
+app.use(cors({ origin: 'http://localhost:4200' }))
 app.use(bodyParser.json());
 
 const main = async () => {
