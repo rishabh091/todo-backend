@@ -33,7 +33,7 @@ router.get('/', getTasks, async (req, res) => {
             const condition = [];
             let order = [['id', 'ASC']];
             if (filters.search) {
-                condition.push({ title: { [Op.like]: `${filters.search}%` } });
+                condition.push({ title: { [Op.iLike]: `${filters.search}%` } });
             }
             if (filters.status) {
                 condition.push({ status: filters.status });
