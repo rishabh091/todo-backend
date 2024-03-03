@@ -77,10 +77,11 @@ router.put('/', updateTask, async (req, res) => {
 router.delete('/', deleteTask, async (req, res) => {
     try {
         const { id } = req.query;
+        console.log({id})
         await Task.destroy({
-            where: { id },
+            where: { id: id },
         });
-        return res.status(200);
+        return res.status(200).json({ success: 'success' });
     } catch (error) {
         console.log('Error in deleting task: ', error);
         return res.status(400).json({ error: error.message });
